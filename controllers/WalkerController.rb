@@ -4,7 +4,7 @@ class WalkerController < Sinatra::Base
 			#recieve JSON requests
 			payload_body = request.body.read
 			payload = JSON.parse(payload_body).symbolize_keys
-
+			email = payload[:email]
 			walker_exists = Walker.find_by email: payload[:email]
 
 			if walker_exists
@@ -15,7 +15,7 @@ class WalkerController < Sinatra::Base
 			else
 				walker = Walker.new
 				walker.email = payload[:email]
-				walker.password_digest = payload[:password_digest]
+				walker.password = payload[:password]
 				
 				walker.save
 				session[:logged_in] = true
@@ -32,8 +32,8 @@ class WalkerController < Sinatra::Base
 			payload = JSON.parse(payload_body).symbolize_keys
 
 			walker = Walker.find_by email: payload[:email]
-			pw = payload[:password_digest]
-			if walker and walker.authenticate pw
+			pw = payload[:password]
+			if walker and walker.authenticate(pw)
 				session[:logged_in] = true
 				session[:email] = walker.email
 				{
