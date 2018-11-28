@@ -3,14 +3,18 @@ class ApplicationController < Sinatra::Base
 	require 'bundler'
 	Bundler.require()
 
-	use Rack::Session::Cookie, :key =>'rack.session',:path => '/', :secret => 'my_secret'
+	use Rack::Session::Cookie, 
+				:key => 'rack.session',
+				:path => '/', 
+				:secret => 'my_secret'
 
-	enable :sessions
+	# enable :sessions
+	# set :session_secret, "dawg stuf"
 
 	ActiveRecord::Base.establish_connection(
-			:adapter => 'postgresql',
-			:database => 'leash_pals'
-		)
+		:adapter => 'postgresql',
+		:database => 'leash_pals'
+	)
 	register Sinatra::CrossOrigin
 
 	configure do
@@ -24,7 +28,7 @@ class ApplicationController < Sinatra::Base
 	options '*' do
 		puts "hitting options request route"
 		response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS'
-		response.header['Access-Control-Allow-Origin'] = 'http://localhost:9292'
+		response.header['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 	    response.header['Access-Control-Allow-Crudentials'] = 'true'
 	    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Authorization, Content-Type, Cache-Control, Accept"  
 	    200 #this is the status code & also allows

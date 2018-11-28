@@ -1,4 +1,11 @@
 class WalkerController < Sinatra::Base
+
+
+	before do
+		puts ""
+		puts "here's the session right now in the filter"
+		pp session
+	end
 #-----------------REGISTER------------------#
 		post '/register' do
 			#recieve JSON requests
@@ -33,9 +40,15 @@ class WalkerController < Sinatra::Base
 
 			walker = Walker.find_by email: payload[:email]
 			pw = payload[:password]
+
 			if walker and walker.authenticate(pw)
 				session[:logged_in] = true
 				session[:email] = walker.email
+		
+				puts ""
+				puts "here's the session right now after we logged in"
+				pp session
+
 				{
 					status: 200,
 					message: "Successfully logged in"
@@ -49,11 +62,12 @@ class WalkerController < Sinatra::Base
 		end
 #-----------------LOGOUT------------------#
 		get '/logout' do
+			binding.pry
 			email = session[:email]
 			session.destroy
 			{
 				status: 200,
-				message: "Logged out walker #{email}"
+				message: "Logged out walker"
 			}.to_json
 		end
 end

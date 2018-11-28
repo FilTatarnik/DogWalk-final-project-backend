@@ -1,13 +1,13 @@
 require 'sinatra/base'
 
 # Controller
+require './controllers/WalkerController'
 require './controllers/ApplicationController'
 require './controllers/OwnerController'
-require './controllers/WalkerController'
 require './controllers/AppointmentController'
 # Models
-require './models/OwnerModel'
 require './models/WalkerModel'
+require './models/OwnerModel'
 require './models/AppointmentModel'
 # Root routes
 map('/') {
