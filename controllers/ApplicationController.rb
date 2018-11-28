@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
 	set :allow_credentials, true
 	set :allow_methods, [:get, :post, :put, :patch, :delete, :options]
 
-	# telling the browswer what's okay in the options
 	options '*' do
 		puts "hitting options request route"
 		response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS'

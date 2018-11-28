@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS leash_pals;
 CREATE DATABASE leash_pals;
 \c leash_pals;
-CREATE TABLE walker(
+CREATE TABLE walkers(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(64),
 	email VARCHAR(64),
@@ -9,7 +9,7 @@ CREATE TABLE walker(
 	age INTEGER
 );
 
-CREATE TABLE owner(
+CREATE TABLE owners(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(64),
 	email VARCHAR(64),
@@ -17,19 +17,19 @@ CREATE TABLE owner(
 	age INTEGER
 );
 
-CREATE TABLE dog(
+CREATE TABLE dogs(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(64),
 	breed VARCHAR(64),
 	age INTEGER,
 	personality VARCHAR(255),
-	owner_id INTEGER REFERENCES owner(id)
+	owner_id INTEGER REFERENCES owners(id)
 );
 
-CREATE TABLE appointment(
+CREATE TABLE appointments(
 	id SERIAL PRIMARY KEY,
-	dog_id INTEGER REFERENCES owner(id),
-	walker_id INTEGER REFERENCES dog(id),
+	dog_id INTEGER REFERENCES owners(id),
+	walker_id INTEGER REFERENCES dogs(id),
 	date TIMESTAMP
 );
 INSERT INTO owner (name, email, password_digest, age) VALUES ('Fil', 'fil@email.com', '123', 27)
