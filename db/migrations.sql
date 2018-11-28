@@ -32,3 +32,6 @@ CREATE TABLE appointment(
 	walker_id INTEGER REFERENCES dog(id),
 	date DATETIME
 );
+INSERT INTO owner (name, email, password_digest, age) VALUES ('Fil', 'fil@email.com', '123', 27)
+INSERT INTO walker (name, email, password_digest, age) VALUES ('Josh', 'josh@email.com', '123', 27)
+INSERT INTO dog (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
