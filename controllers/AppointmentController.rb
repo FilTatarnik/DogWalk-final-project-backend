@@ -1,4 +1,3 @@
-class AppointmentController < Sinatra::Base
-
+class AppointmentController < ApplicationController
 
 end

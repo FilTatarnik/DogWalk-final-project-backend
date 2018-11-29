@@ -1,4 +1,4 @@
-class OwnerController < Sinatra::Base
+class OwnerController < ApplicationController
 
 
 end

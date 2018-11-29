@@ -1,4 +1,4 @@
-class WalkerController < Sinatra::Base
+class WalkerController < ApplicationController
 
 
 	before do
@@ -62,7 +62,7 @@ class WalkerController < Sinatra::Base
 		end
 #-----------------LOGOUT------------------#
 		get '/logout' do
-			binding.pry
+			# binding.pry
 			email = session[:email]
 			session.destroy
 			{

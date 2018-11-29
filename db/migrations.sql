@@ -32,7 +32,7 @@ CREATE TABLE appointments(
 	walker_id INTEGER REFERENCES dogs(id),
 	date TIMESTAMP
 );
-INSERT INTO owner (name, email, password_digest, age) VALUES ('Fil', 'fil@email.com', '123', 27)
-INSERT INTO walker (name, email, password_digest, age) VALUES ('Josh', 'josh@email.com', '123', 27)
-INSERT INTO dog (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
-INSERT INTO appointment (dog_id, walker_id, date) VALUES (1, 1, '11/28/2018');
+INSERT INTO owners (name, email, password_digest, age) VALUES ('Fil', 'fil@email.com', '123', 27)
+INSERT INTO walkers (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
+INSERT INTO appointments (dog_id, walker_id, date) VALUES (1, 1, '11/28/2018');

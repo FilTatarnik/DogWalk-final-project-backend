@@ -1,8 +1,8 @@
 require 'sinatra/base'
 
 # Controller
-require './controllers/WalkerController'
 require './controllers/ApplicationController'
+require './controllers/WalkerController'
 require './controllers/OwnerController'
 require './controllers/AppointmentController'
 # Models
