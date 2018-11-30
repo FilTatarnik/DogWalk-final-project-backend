@@ -33,7 +33,7 @@ CREATE TABLE appointments(
 	date TIMESTAMP
 );
 
-INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
+INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1);
 
 
 

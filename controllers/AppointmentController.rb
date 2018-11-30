@@ -17,11 +17,11 @@ class AppointmentController < ApplicationController
 		walker = Walker.find_by email: session[:email]
 		# use walker to set walker_id instead of using payload to make sure whoever is logged in can submit a appointment
 
-		appointment = Appointments.new
+		appointment = Appointment.new
 		appointment.dog_id = payload[:dog_id]
 		appointment.date = payload[:date]
 		# appointment.walker_id = payload[:walker_id]
-		binding.pry
+		# binding.pry
 		appointment.walker_id = walker.id
 		appointment.save
 		{
