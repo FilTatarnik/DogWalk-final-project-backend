@@ -6,9 +6,11 @@ require './controllers/WalkerController'
 require './controllers/OwnerController'
 require './controllers/AppointmentController'
 # Models
+require './models/DogModel'
 require './models/WalkerModel'
 require './models/OwnerModel'
 require './models/AppointmentModel'
+
 # Root routes
 map('/') {
 	run ApplicationController

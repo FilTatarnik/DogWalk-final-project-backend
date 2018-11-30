@@ -35,10 +35,12 @@ class ApplicationController < Sinatra::Base
 	end
 
 	#testing to see if ApplicationController '/' route works
-	get '/' do {
-		status: 200,
-		message: "Server works and is connected"
-	}.to_json
+	get '/' do 
+		binding.pry
+		{
+			status: 200,
+			message: "Server works and is connected"
+		}.to_json
 	end
 	
 end

@@ -6,6 +6,8 @@ class OwnerController < ApplicationController
 		pp session
 	end
 #-----------------REGISTER------------------#
+# set variable userType for sessions
+
 		post '/register' do
 			#recieve JSON requests
 			payload_body = request.body.read
@@ -33,6 +35,7 @@ class OwnerController < ApplicationController
 			end
 		end
 #-----------------LOGIN------------------#
+# set variable userType for sessions
 		post '/login' do
 			payload_body = request.body.read
 			payload = JSON.parse(payload_body).symbolize_keys
