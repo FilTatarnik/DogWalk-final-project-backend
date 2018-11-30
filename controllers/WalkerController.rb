@@ -33,6 +33,22 @@ class WalkerController < ApplicationController
 				}.to_json
 			end
 		end
+#-----------------UPDATE------------------#
+		put '/:id' do
+			payload_body = request.body.read
+			payload = JSON.parse(payload_body).symbolize_keys
+
+			walker = Walker.find params[:id]
+			walker.name = payload[:name]
+			walker.email = payload[:email]
+			walker.age = payload[:age]
+			walker.save
+			{
+				status: 200,
+				message: "Updated Walker",
+				walker: walker
+			}.to_json
+		end
 #-----------------LOGIN------------------#
 		post '/login' do
 			payload_body = request.body.read
