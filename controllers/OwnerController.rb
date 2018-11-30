@@ -25,7 +25,7 @@ class OwnerController < ApplicationController
 				owner.password = payload[:password]
 				owner.age = payload[:age]
 				owner.save
-				
+
 				session[:logged_in] = true
 				session[:email] = owner.email
 				{
@@ -86,4 +86,13 @@ class OwnerController < ApplicationController
 				message: "Logged out owner"
 			}.to_json
 		end
+#-----------------DELETE------------------#
+	delete '/:id' do
+		owner = Owner.find params[:id]
+		owner.destroy
+		{
+			status: 200,
+			message: "Destroyed Owner"
+		}.to_json
+	end
 end

@@ -86,4 +86,13 @@ class WalkerController < ApplicationController
 				message: "Logged out walker"
 			}.to_json
 		end
+#-----------------DELETE------------------#
+	delete '/:id' do
+		walker = Walker.find params[:id]
+		walker.destroy
+		{
+			status: 200,
+			message: "Destroyed Walker"
+		}.to_json
+	end
 end
