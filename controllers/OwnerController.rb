@@ -20,10 +20,12 @@ class OwnerController < ApplicationController
 				}.to_json
 			else
 				owner = Owner.new
+				owner.name = payload[:name]
 				owner.email = payload[:email]
 				owner.password = payload[:password]
-				
+				owner.age = payload[:age]
 				owner.save
+				
 				session[:logged_in] = true
 				session[:email] = owner.email
 				{
@@ -57,6 +59,22 @@ class OwnerController < ApplicationController
 					message: "Invalid email or password"
 				}.to_json
 			end
+		end
+#-----------------UPDATE------------------#
+		put '/:id' do
+			payload_body = request.body.read
+			payload = JSON.parse(payload_body).symbolize_keys
+
+			owner = Owner.find params[:id]
+			owner.name = payload[:name]
+			owner.email = payload[:email]
+			owner.age = payload[:age]
+			owner.save
+			{
+				status: 200,
+				message: "Updated Owner",
+				owner: owner
+			}.to_json
 		end
 #-----------------LOGOUT------------------#
 		get '/logout' do
