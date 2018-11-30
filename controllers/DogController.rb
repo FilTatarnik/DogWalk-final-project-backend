@@ -21,6 +21,7 @@ class DogController < ApplicationController
 		dog.breed = payload[:breed]
 		dog.age = payload[:age]
 		dog.personality = payload[:personality]
+		dog.owner_id = payload[:owner_id]
 		# binding.pry
 		dog.save
 		{
