@@ -7,7 +7,7 @@ class AppointmentController < ApplicationController
 			appointments: walker.appointments.order(:id)
 		}.to_json
 	end
-	#create appointment
+#-----------------CREATE------------------#
 	post '/' do
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
@@ -26,6 +26,29 @@ class AppointmentController < ApplicationController
 			status: 200,
 			message: "Appointment Created!",
 			appointment: appointment
+		}.to_json
+	end
+#-----------------UPDATE------------------#
+	put '/:id' do
+		payload_body = request.body.read
+		payload = JSON.parse(payload_body).symbolize_keys
+
+		appointment = Appointment.find params[:id]
+		appointment.date = payload[:date]
+		appointment.save
+		{
+			status: 200,
+			message: "Updated Appointment",
+			appointment: appointment
+		}.to_json
+	end
+#-----------------DELETE------------------#
+	delete '/:id' do
+		appointment = Appointment.find params[:id]
+		appointment.destroy
+		{
+			status: 200,
+			message: "Canceled Appointment"
 		}.to_json
 	end
 
