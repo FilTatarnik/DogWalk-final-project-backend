@@ -28,21 +28,30 @@ class DogController < ApplicationController
 		}.to_json
 	end
 #-----------------UPDATE------------------#
-		put '/:id' do
-			payload_body = request.body.read
-			payload = JSON.parse(payload_body).symbolize_keys
+	put '/:id' do
+		payload_body = request.body.read
+		payload = JSON.parse(payload_body).symbolize_keys
 
-			dog = Dog.find params[:id]
-			dog.name = payload[:name]
-			dog.breed = payload[:breed]
-			dog.age = payload[:age]
-			dog.personality = payload[:personality]
-			dog.owner_id = payload[:owner_id]
-			dog.save
-			{
-				status: 200,
-				message: "Updated Dog",
-				dog: dog
-			}.to_json
-		end
+		dog = Dog.find params[:id]
+		dog.name = payload[:name]
+		dog.breed = payload[:breed]
+		dog.age = payload[:age]
+		dog.personality = payload[:personality]
+		dog.owner_id = payload[:owner_id]
+		dog.save
+		{
+			status: 200,
+			message: "Updated Dog",
+			dog: dog
+		}.to_json
+	end
+#-----------------DELETE------------------#
+	delete '/:id' do
+		dog = Dog.find params[:id]
+		dog.destroy
+		{
+			status: 200,
+			message: "Gave away Dog"
+		}.to_json
+	end
 end

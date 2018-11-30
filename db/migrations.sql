@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS leash_pals;
 CREATE DATABASE leash_pals;
+
 \c leash_pals;
+
 CREATE TABLE walkers(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(64),
@@ -23,19 +25,19 @@ CREATE TABLE dogs(
 	breed VARCHAR(64),
 	age INTEGER,
 	personality VARCHAR(255),
-	owner_id INTEGER REFERENCES owners(id)
+	owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
 );
 
 CREATE TABLE appointments(
 	id SERIAL PRIMARY KEY,
-	dog_id INTEGER REFERENCES owners(id),
-	walker_id INTEGER REFERENCES dogs(id),
+	dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+	walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
 	date TIMESTAMP
 );
 
+
+
 INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1);
-
-
 
 
 
