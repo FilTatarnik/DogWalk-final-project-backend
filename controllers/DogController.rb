@@ -13,9 +13,6 @@ class DogController < ApplicationController
 		payload = JSON.parse(payload_body).symbolize_keys
 		# binding.pry
 		pp "hitting route"
-
-		# owner = Owner.find_by email: session[:email]
-
 		dog = Dog.new
 		dog.name = payload[:name]
 		dog.breed = payload[:breed]

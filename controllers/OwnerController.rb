@@ -7,14 +7,12 @@ class OwnerController < ApplicationController
 	end
 #-----------------REGISTER------------------#
 # set variable userType for sessions
-
 		post '/register' do
 			#recieve JSON requests
 			payload_body = request.body.read
 			payload = JSON.parse(payload_body).symbolize_keys
 			email = payload[:email]
 			owner_exists = Owner.find_by email: payload[:email]
-
 			if owner_exists
 				{
 					status: 421,
@@ -39,10 +37,8 @@ class OwnerController < ApplicationController
 		post '/login' do
 			payload_body = request.body.read
 			payload = JSON.parse(payload_body).symbolize_keys
-
 			owner = Owner.find_by email: payload[:email]
 			pw = payload[:password]
-
 			if owner and owner.authenticate(pw)
 				session[:logged_in] = true
 				session[:email] = owner.email
