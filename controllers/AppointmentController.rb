@@ -2,9 +2,16 @@ class AppointmentController < ApplicationController
 	#index for appointments per walker
 	get '/' do
 		walker = Walker.find_by email: session[:email]
+		response = walker.appointments.map do |appt| 
+			{
+				dog: appt.dog,
+				owner: appt.dog.owner,
+				date: appt.date
+			}
+		end
 		{
 			status: 200,
-			appointments: walker.appointments.order(:id)
+			appointments: response# that new variable walker.appointments
 		}.to_json
 	end
 #-----------------CREATE------------------#
@@ -13,6 +20,8 @@ class AppointmentController < ApplicationController
 		payload = JSON.parse(payload_body).symbolize_keys
 		# binding.pry
 		pp "hitting route"
+
+
 		walker = Walker.find_by email: session[:email]
 		# use walker to set walker_id instead of using payload to make sure whoever is logged in can submit a appointment
 		appointment = Appointment.new
