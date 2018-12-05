@@ -9,8 +9,10 @@ class DogController < ApplicationController
 	end
 #-----------------CREATE------------------#
 	post '/' do
+
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
+		owner = Owner.find_by email: session[:email]
 		# binding.pry
 		pp "hitting route"
 		dog = Dog.new
@@ -18,7 +20,7 @@ class DogController < ApplicationController
 		dog.breed = payload[:breed]
 		dog.age = payload[:age]
 		dog.personality = payload[:personality]
-		dog.owner_id = payload[:owner_id]
+		dog.owner_id = owner.id
 		# binding.pry
 		dog.save
 		{

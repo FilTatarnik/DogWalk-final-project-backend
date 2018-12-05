@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
 
 	#testing to see if ApplicationController '/' route works
 	get '/' do 
-		binding.pry
+		# binding.pry
 		{
 			status: 200,
 			message: "Server works and is connected"
