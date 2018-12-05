@@ -21,6 +21,7 @@ class WalkerController < ApplicationController
 				}.to_json
 			else
 				walker = Walker.new
+				walker.name = payload[:name]
 				walker.email = payload[:email]
 				walker.password = payload[:password]
 				

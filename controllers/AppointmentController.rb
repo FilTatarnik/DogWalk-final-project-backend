@@ -4,6 +4,7 @@ class AppointmentController < ApplicationController
 		walker = Walker.find_by email: session[:email]
 		response = walker.appointments.map do |appt| 
 			{
+				id: appt.id,
 				dog: appt.dog,
 				owner: appt.dog.owner,
 				date: appt.date
