@@ -3,6 +3,8 @@ class ApplicationController < Sinatra::Base
 	require 'bundler'
 	Bundler.require()
 
+	require './config/environments'
+
 	use Rack::Session::Cookie, 
 				:key => 'rack.session',
 				:path => '/', 
@@ -11,10 +13,6 @@ class ApplicationController < Sinatra::Base
 	# enable :sessions
 	# set :session_secret, "dawg stuf"
 
-	ActiveRecord::Base.establish_connection(
-		:adapter => 'postgresql',
-		:database => 'leash_pals'
-	)
 	register Sinatra::CrossOrigin
 
 	configure do

@@ -6,6 +6,14 @@ class WalkerController < ApplicationController
 		puts "here's the session right now in the filter"
 		pp session
 	end
+
+	get '/' do
+		walker = Walker.all
+		{
+			status: 200,
+			walker: walker
+		}.to_json
+	end
 #-----------------REGISTER------------------#
 		post '/register' do
 			#recieve JSON requests
