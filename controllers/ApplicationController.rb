@@ -18,15 +18,18 @@ class ApplicationController < Sinatra::Base
 	configure do
 		enable :cross_origin
 	end
+	
+	allowed = ENV['RACK_ENV'] == "development" ? "http://localhost:3000" : 'react app URL'
 
-	set :allow_origin, :any
+	set :allow_origin, allowed
 	set :allow_credentials, true
 	set :allow_methods, [:get, :post, :put, :patch, :delete, :options]
+
 
 	options '*' do
 		puts "hitting options request route"
 		response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS'
-		response.header['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+		response.header['Access-Control-Allow-Origin'] = allowed
 	    response.header['Access-Control-Allow-Crudentials'] = 'true'
 	    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Authorization, Content-Type, Cache-Control, Accept"  
 	    200 #this is the status code & also allows
