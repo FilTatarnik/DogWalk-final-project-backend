@@ -1,6 +1,7 @@
 # Leash Pals Backend
 
 ## API calls
+replace localhost:9292 with https://leash-pals-frontend.herokuapp.com/ for the deployed version
 
 ### Get Walkers
 ## GET
