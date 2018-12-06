@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
 		enable :cross_origin
 	end
 	
-	allowed = ENV['RACK_ENV'] == "development" ? "http://localhost:3000" : 'react app URL'
+	allowed = ENV['RACK_ENV'] == "development" ? "http://localhost:3000" : 'https://leash-pals-frontend.herokuapp.com/'
 
 	set :allow_origin, allowed
 	set :allow_credentials, true
