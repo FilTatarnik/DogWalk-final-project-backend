@@ -20,6 +20,9 @@ class AppointmentController < ApplicationController
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
 		# binding.pry
+		pp '------------------------------++---------'
+		# binding.pry
+		pp '----------------------------------------'
 		pp "hitting route"
 		pp payload
 
