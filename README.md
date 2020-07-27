@@ -10,7 +10,7 @@ Databse and tables will be created
 If still in psql shell, hit \q to enter back into normal terminal
 bundle install
 bundle exec rackup
-Run simultaneously with frontend
+Run simultaneously with frontend -> https://github.com/FilTatarnik/capstone-front-end
 ```
 
 ## API calls
