@@ -1,4 +1,15 @@
 # Leash Pals Backend
+## How to begin
+```
+git clone https://github.com/FilTatarnik/DogWalk-final-project-backend.git
+cd into Directory
+Open IDE of choice
+copy and paste Migrations.sql file into terminal
+If still in psql shell, hit \q to enter back into normal terminal
+bundle install
+bundle exec rackup
+Run simultaneously with frontend
+```
 
 ## API calls
 replace localhost:9292 with https://leash-pals-frontend.herokuapp.com/ for the deployed version
