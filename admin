@@ -1,0 +1,1643 @@
+quit
+\q
+\t
+\l
+\c filiptatarnik 
+\t
+\l
+clear
+\dt
+\t
+\lt
+\d
+exit
+quit
+\q
+CREATE DATABASE vader
+;
+CREATE DATABSE vader2
+;
+CREATE DATABASE vader2;
+"/Applications/Postgres.app/Contents/Versions/10/bin/psql" -p5432 -d "vader"
+\
+/
+\l
+\q
+CREATE DATABASE library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now(), -- NOT NULL is a constraint
+);
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now(), -- NOT NULL is a constraint
+);
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now(), -- NOT NULL is a constraint
+);
+\l
+\c library_app 
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+SELECT * FROM author
+;
+\DROP DATABASE IF EXISTS library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL,
+description TEXT, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+DROP DATABASE IF EXISTS library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL,
+description TEXT, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+\c filiptatarnik 
+DROP DATABASE IF EXISTS library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL,
+description TEXT, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+SELECT * FROM authors
+;
+SELECT * FROM author
+;
+ALTER TABLE author ADD COLUMN last_name VARCHAR(255);
+SELECT * FROM author
+;
+ALTER TABLE author DROP COLUMN description;
+SELECT * FROM author
+;
+ALTER TABLE author RENAME TO authors;
+\dt
+ALTER TABLE authors FROM firstName RENAME TO first_name;
+ALTER TABLE authors RENAME COLUMN firstName TO first_name;
+SELECT * FROM author
+;
+;
+SELECT * FROM authors
+;
+DROP TABLE authors;
+\dt
+\;
+\l
+CREATE DATABASE test_1
+\l
+\c filiptatarnik 
+CREATE DATABASE test_1
+\l
+CREATE DB test_1
+\l
+CREATE DATABASE fil1
+CREATE DB test_1;
+\l
+\dt
+CREATE DATABASE fil_1
+;
+\l
+\c fil_1
+DROP DATABASE IF EXISTS library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL,
+description TEXT, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+-- you can change the structure of a table using ALTER
+ALTER TABLE author ADD COLUMN last_name VARCHAR(255);
+ALTER TABLE author DROP COLUMN description;
+ALTER TABLE author RENAME TO authors;
+ALTER TABLE authors RENAME COLUMN firstName TO first_name;
+\dt
+SELECT * FROM fil_1
+;
+\l
+\c fil_1
+\dr
+\dt
+DROP DATABASE IF EXISTS library_app;
+CREATE DATABASE library_app;
+\c library_app
+CREATE TABLE author(
+id SERIAL PRIMARY KEY,
+firstName VARCHAR(64),
+year_of_birth INTEGER,
+year_of_death INTEGER DEFAULT NULL,
+description TEXT, -- default values are possible
+created_at TIMESTAMP NOT NULL DEFAULT now() -- NOT NULL is a constraint
+);
+-- you can change the structure of a table using ALTER
+ALTER TABLE author ADD COLUMN last_name VARCHAR(255);
+ALTER TABLE author DROP COLUMN description;
+ALTER TABLE author RENAME TO authors;
+ALTER TABLE authors RENAME COLUMN firstName TO first_name;
+\l
+\c fil_1
+CREATE TABLE products(id SERIAL PRIMARYY KEY, name VARCHAR(64), price NUMERIC NOT NULL DEFAULT 'NaN', quantity INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE products(id SERIAL PRIMARY KEY, name VARCHAR(64), price NUMERIC NOT NULL DEFAULT 'NaN', quantity INTEGER NOT NULL DEFAULT 0
+);
+INSERT INTO products (name, price, quantity)
+VALUES
+('bookmark', 0.50, 200);
+SELECT * FROM products
+;
+INSERT INTO products (name, price, quantity) VALUES ('bookbag', 20, 75);
+INSERT INTO products (name, price, quantity) VALUES ('book cover', 60.00, 20);
+INSERT INTO products (name, price, quantity) VALUES ('reading light', 20, 20);
+SELECT * FROM products
+;
+SELECT name FROM products ORDER BY price;
+SELECT name FROM products ORDER BY price DESC;
+SELECT name, price FROM products ORDER BY price DESC;
+SELECT * FROM products WHERE price > 19.99 ORDER BY price;
+SELECT * FROM products WHERE name LIKE 'BOOK%';
+SELECT * FROM products WHERE name LIKE 'BOOK%';
+SELECT * FROM products WHERE name LIKE 'BOOK%';
+SELECT * FROM products WHERE name LIKE 'book%';
+SELECT * FROM products WHERE name LIKE 'book%';UPDATE products SET quantity = quantity - 1 WHERE name = 'bookmark';
+SELECT * FROM products
+;
+UPDATE products SET name = 'bookbag' WHERE name = 'book bag';
+SELECT * FROM products
+;
+UPDATE products SET name = 'book bag' WHERE name = 'bookbag';
+SELECT * FROM products
+;
+DELETE FROM products
+ WHERE name = 'book cover'
+ RETURNING *;
+DELETE FROM products WHERE name <> 'bookmark';
+SELECT * FROM products
+;
+DELETE FROM products;
+INSERT INTO products (name, price, quantity) VALUES ('bookmark', 0.50, 200);
+INSERT INTO products (name, price, quantity) VALUES ('bookbag', 20, 75);
+INSERT INTO products (name, price, quantity) VALUES ('book cover', 60.00, 20);
+INSERT INTO products (name, price, quantity) VALUES ('reading light', 20, 20);
+SELECT * FROM products
+;
+SELECT name, price AS cost, quantity
+FROM products
+WHERE name = 'bookmark';
+INSERT INTO products (name, price, quantity) VALUES ('bookbag', 20, 75);
+SELECT * FROM products;
+INSERT INTO products (name, price, quantity) VALUES ('bookbag', 50.00, 5);
+SELECT * FROM products;
+DELETE FROM products, WHERE name = 'bookbag', price = 75
+;
+DELETE FROM products WHERE name = 'bookbag', price = 75
+;
+DELETE FROM products WHERE name = 'bookbag' price = 75
+;
+SELECT DISTINCT ON (name) *
+From products;
+SELECT DISTINCT ON (name) *
+From products;
+SELECT DISTINCT ON (name) name
+From products;
+SELECT SUM(quantity) AS total_inventory_quantity FROM products;
+SELECT name, MIN(price) AS lowest_avail_price
+FROM products
+GROUP BY name
+ORDER BY lowest_avail_price;
+SELECT * FROM products;
+SELECT SUM(quantity) AS total_inventory_quantity FROM products;
+SELECT SUM(price * quantity) AS total_inventory_quantity FROM products;
+SELECT SUM(price * quantity) AS total_inventory_sum FROM products;
+CREATE TABLE books(
+id SERIAL PRIMARY KEY,
+title VARCHAR(64),
+publication_year INTEGER,
+isbn VARCHAR(64), 
+author_id 
+);
+CREATE TABLE books(
+id SERIAL PRIMARY KEY,
+title VARCHAR(64),
+publication_year INTEGER,
+isbn VARCHAR(64), 
+author_id 
+);
+CREATE TABLE books(id SERIAL PRIMARY KEY,title VARCHAR(64),publication_year INTEGER,isbn VARCHAR(64), author_id SERIAL PRIMARY KEY);
+CREATE TABLE books(id SERIAL PRIMARY KEY,title VARCHAR(64),publication_year INTEGER,isbn VARCHAR(64));
+\L
+\l
+SELECT * FROM books
+;
+ALTER TABLE books
+ADD author_id VARCHAR(64)
+;
+SELECT * FROM books
+;
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('The Jungle Book', 1894, 9788497896696);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Alice''s Adventures in Wonderland', 1865, 9781552465707);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Rikki-Tikki-Tavi', 1894, 1484123689);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Through the Looking-Glass', 1871, 9781489500182);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('The Time Machine', 1895, 9781423794417);
+ALTER TABLE books
+REMOVE author_id
+;
+SELECT * FROM books
+;
+\l
+SELECT * FROM authors
+;
+CREATE TABLE authors(first_name, last_name, year_of_birth, year_of_death)
+VALUES
+\c filiptatarnik
+\c fil_1
+SELECT * FROM books
+;
+SELECT * FROM books
+;
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('The Jungle Book', 1894, 9788497896696, 1);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Alice''s Adventures in Wonderland', 1865, 9781552465707, 2);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Rikki-Tikki-Tavi', 1894, 1484123689, 1);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('Through the Looking-Glass', 1871, 9781489500182, 2);
+INSERT INTO books (title, publication_year, isbn, author_id) VALUES ('The Time Machine', 1895, 9781423794417, 3);
+SELECT * FROM books
+;
+CREATE TABLE authors(id SERIAL PRIMARY KEY, first_name VARCHAR(64), last_name VARCHAR(64), year_of_birth VARCHAR(64), year_of_death VARCHAR(64));
+INSERT INTO authors (first_name, last_name, year_of_birth, year_of_death) VALUES ('Rudyard', 'Kipling', 1865, 1936);
+INSERT INTO authors (first_name, last_name, year_of_birth, year_of_death) VALUES ('Lewis', 'Caroll', 1832, 1942);
+INSERT INTO authors (first_name, last_name, year_of_birth, year_of_death) VALUES ('H.G', 'Wells', 1866, 1946);
+SELECT * FROM authors
+;
+SELECT * FROM books
+;
+SELECT * FROM fil_1
+;
+\c products
+SELECT * FROM products
+;
+ALTER TABLE products ADD COLUMN book_id INTEGER;
+SELECT * FROM products
+;
+INSERT INTO products (book_id, price, quantity) VALUES (1, 99.99, 10);
+SELECT * FROM products
+;
+INSERT INTO products (book_id, price, quantity) VALUES (2, 6.74, 5), (3, 7.00, 3),(3,10.00, 10),(4, 15.00, 20),(5, 87.00, 44);
+SELECT * FROM products
+;
+SELECT book_id, SUM(price*quantity) AS inventory_value
+FROM products
+WHERE book_id IS NOT NULL
+ORDER BY inventory_value DESC;
+SELECT book_id, SUM(price*quantity) AS inventory_value FROM products WHERE book_id IS NOT NULL ORDER BY inventory_value DESC;
+\c filiptatarnik 
+CREATE DB flights
+;
+\l
+CREATE DB flights;
+CREATE DB flights
+\c flights
+\q
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255)
+);
+\c salty_items
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255)
+;
+)
+;
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255)
+);
+CREATE DATABASE salty_items
+;
+\c salty_items 
+CREATE TABLE items(id SERIAL PRIMARY KEY, content VARCHAcontent VARCHAR(255));
+CREATE TABLE items(id SERIAL PRIMARY KEY, content  VARCHAR(255));
+q
+/q
+\q
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(32), password_digest VARCHAR(60), user_id INTEGER REFERENCES users(id));
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(32), password_digest VARCHAR(60), user_id INTEGER REFERENCES users(id));
+\c
+\c filiptatarnik 
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(32), password_digest VARCHAR(60), user_id INTEGER REFERENCES users(id));
+\q
+DROP DATABASE IF EXISTS salty_items
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(32), password_digest VARCHAR(60), user_id INTEGER REFERENCES users(id));
+\q
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+\c filiptatarnik 
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(id SERIAL PRIMARY KEY, username VARCHAR(32), password_digest VARCHAR(60), user_id INTEGER REFERENCES users(id));
+SELECT * from users
+;
+\c filiptatarnik 
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE items(id SERIAL PRIMARY KEY,content VARCHAR(255));
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password_digest VARCHAR(60), 
+user_id INTEGER REFERENCES users(id)
+);
+\q
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password_digest VARCHAR(60)
+);
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255)
+user_id INTEGER REFERENCES users(id)
+);
+\c filiptatarnik 
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password_digest VARCHAR(60)
+);
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255),
+user_id INTEGER REFERENCES users(id)
+);
+\q
+CREATE DATABASE traveler;
+\c guardian
+CREATE TABLE guardians(id SERIAL PRIMARY KEY, username VARCHAR(32), password VARCHAR(60));
+CREATE TABLE subclasses(id SERIAL PRIMARY KEY, subclass VARCHAR(255), guardian_id INT REFERENCES guardians(id));
+\dt
+\c traveler
+\dt
+\c filiptatarnik 
+DROP DATABASE traveler
+;
+\dt
+CREATE DATABASE traveler;
+\c traveler
+CREATE TABLE guardians(id SERIAL PRIMARY KEY, username VARCHAR(32), password VARCHAR(60));
+CREATE TABLE subclasses(id SERIAL PRIMARY KEY, subclass VARCHAR(255), guardian_id INT REFERENCES guardians(id));
+\dt
+\d guardians
+\d subclasses
+\q
+\dt
+\c travler
+\c traveler
+\dt
+\d guardians
+\c filiptatarnik 
+DROP DATABASE traveler 
+;
+\dt 
+\c traveler
+\l
+CREATE DATABASE traveler
+;
+\c traveler
+\c filiptatarnik 
+DROP DATABASE traveler
+;
+\l 
+CREATE DATABASE traveler;
+\c traveler
+CREATE TABLE guardians(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password VARCHAR(60), 
+subclass VARCHAR(255) REFERENCES subclass(id)
+);
+CREATE TABLE subclasses(
+id SERIAL PRIMARY KEY, 
+title VARCHAR(255), 
+guardian_id INT REFERENCES guardians(id)
+);
+\dt
+l
+\l
+\q
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password_digest VARCHAR(60)
+);
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255),
+user_id INTEGER REFERENCES users(id)
+);
+\q
+DROP DATABASE IF EXISTS salty_items;
+CREATE DATABASE salty_items;
+\c salty_items
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+username VARCHAR(32), 
+password_digest VARCHAR(60)
+);
+CREATE TABLE items(
+id SERIAL PRIMARY KEY,
+content VARCHAR(255),
+user_id INTEGER REFERENCES users(id)
+);
+\q
+\dt
+\l
+\c salty_items 
+\dt
+\c items
+SELECT * FROM items
+;
+\q
+\dt
+\l
+\c salty_movies
+\dt
+INSERT INTO movies (title, description, user_id) VALUES ('Interstellar', 'space movie about space', 1);
+INSERT INTO movies (title, description, user_id) VALUES ('Dodgeball', 'duck, dive,dip, dive, dodge', 1);
+INSERT INTO movies (title, description, user_id) VALUES ('James Bond', 'british action', 2);
+INSERT INTO movies (title, description, user_id) VALUES ('Free Willy', 'save the whales', 2);
+INSERT INTO users (username, password_digest) VALUES ('jared','123');
+INSERT INTO users (username, password_digest) VALUES ('sam','123');
+select * from users
+;
+select * from movies
+;
+\c filiptatarnik 
+DROP DATABASE salty_movies
+;
+quit
+q
+\q
+\l
+CREATE DATABASE salty_movies;
+\c salty_movies
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+username VARCHAR(64),
+password_digest VARCHAR(60)
+);
+CREATE TABLE movies(
+id SERIAL PRIMARY KEY,
+title VARCHAR(64),
+description VARCHAR(200),
+user_id INTEGER REFERENCES users(id)
+);
+INSERT INTO movies (title, description, user_id) VALUES ('Interstellar', 'space movie about space', 1);
+INSERT INTO movies (title, description, user_id) VALUES ('Dodgeball', 'duck, dive,dip, dive, dodge', 1);
+INSERT INTO movies (title, description, user_id) VALUES ('James Bond', 'british action', 2);
+INSERT INTO movies (title, description, user_id) VALUES ('Free Willy', 'save the whales', 2);
+\q
+\c salty_movies
+\dt
+\l
+\c salty_movies
+\dt
+select * from users;
+\q
+CREATE DATABASE leash_pals
+;
+\c leash_pals 
+;
+CREATE TABLE dog_walker
+;
+CREATE TABLE dogWalker
+;
+bye
+;
+\q
+\c leash_pals 
+\dt
+CREATE TABLE users
+;
+DROP DATABASE IF EXISTS leash_pals;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walker(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owner(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dog(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owner(id)
+);
+CREATE TABLE appointment(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owner(id),
+walker_id INTEGER REFERENCES dog(id),
+date DATETIME
+);
+INSERT INTO owner (name, email, password_digest, age) VALUES ('Fil', 'fil@email.com', '123', 27)
+;
+\dt
+select * from owner
+l
+;
+INSERT INTO walker (name, email, password_digest, age) VALUES ('Josh', 'josh@email.com', '123', 27)
+;
+select * from walker
+;
+INSERT INTO dog (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
+;
+select * from dog
+;
+CREATE TABLE appointment(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owner(id),
+walker_id INTEGER REFERENCES dog(id),
+date TIMESTAMP
+);
+\DT
+\dt
+select * from dogs
+;
+select * from dog
+;
+INSERT INTO appointment (dog_id, walker_id, date) VALUES (1, 1, 11/28/2018);
+INSERT INTO appointment (dog_id, walker_id, date) VALUES (1, 1, 11/28/2018);
+INSERT INTO appointment (dog_id, walker_id, date) VALUES (1, 1, '11/28/2018');
+select * from appointments
+;
+select * from appointment
+;
+select * from walker
+;
+\dt
+select * from walker
+;
+\c filiptatarnik 
+DROP DATABASE IF EXISTS leash_pals;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walker(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owner(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dog(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owner(id)
+);
+CREATE TABLE appointment(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owner(id),
+walker_id INTEGER REFERENCES dog(id),
+date TIMESTAMP
+);
+DROP DATABASE leash_pals
+;
+\c filiptatarnik 
+DROP DATABASE leash_pals
+;
+DROP DATABASE leash_pals
+;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walker(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owner(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dog(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owner(id)
+);
+CREATE TABLE appointment(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owner(id),
+walker_id INTEGER REFERENCES dog(id),
+date TIMESTAMP
+);
+\c leash_pals
+\c filiptatarnik 
+CREATE DATABASE leash_pals;
+DROP DATABASE leash_pals
+;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owner(id)
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owner(id),
+walker_id INTEGER REFERENCES dog(id),
+date TIMESTAMP
+);
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id)
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owners(id),
+walker_id INTEGER REFERENCES dogs(id),
+date TIMESTAMP
+);
+\dt
+select * from user
+;
+select * from walkers
+;
+select * from walkers
+;
+select * from walkers
+;
+select * from walkers
+;
+\q
+\c leash_pals 
+select * from walkers;
+\q
+\c leash_pals 
+INSERT INTO walker (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+;
+INSERT INTO walker (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+INSERT INTO walkers (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+;
+INSERT INTO walkers (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+;
+select * from owners
+;
+\q
+\c leash_pals
+select * from owners
+;
+select * from owners
+;
+select * from owners
+;
+\dt
+select * from dogs
+;
+\q
+\c leash_pals 
+select * from appointments
+;
+INSERT INTO appointments (dog_id, walker_id, date) VALUES (1, 1, '11/28/2018');
+select * from dogs
+;
+ALTER TABLE dogs
+;
+ALTER TABLE dogs ADD walkers_id INTEGER REFERENCES walkers(id)
+;
+select * from dogs;
+INSERT INTO appointments (dog_id, walker_id, date) VALUES (1, 1, '11/28/2018');
+select * from walkers
+;
+INSERT INTO appointments (dog_id, walker_id, date) VALUES (1, 11, '11/28/2018');
+select * from dogs;
+INSERT INTO appointments (dog_id, walkers_id, date) VALUES (1, 1, '11/28/2018');
+select * from appointments;
+ALTER TABLE appointments DROP COLUMN walker_id
+;
+ALTER TABLE appointments ADD walkers_id INTEGER REFERENCES walkers(id);
+INSERT INTO appointments (dog_id, walkers_id, date) VALUES (1, 1, '11/28/2018');
+select * from appointments;
+select * from walkers;
+select * from owners;
+select * from dog;
+select * from dogs;
+\q
+\c leash_pals 
+select * from walkers
+;
+select * from appointments
+;
+\q
+DROP DATABASE IF EXISTS leash_pals;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id)
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owners(id),
+walker_id INTEGER REFERENCES dogs(id),
+date TIMESTAMP
+);
+INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1)
+\q
+\c leash_pals;
+INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1);
+\q
+\c leash_pals 
+select * from appointments
+;
+select * from dogs
+;
+q\
+\q
+\c leash_pals
+select * from owners
+;
+\dt
+select * from dogs
+;
+select * from dogs
+;
+select * from owners;
+select * from walkers;
+select * from appointments;
+select * from appointments;
+select * from walkers;
+select * from owners;
+select * from dogs
+;
+select * from appointments;
+select * from appointments;
+select * from appointments;
+select * from owners;
+select * from owners;
+select * from owners;
+select * from owners;
+select * from owners;
+\q
+\c leash_pals 
+select * from owners;
+select 1 from owners;
+select * from owners;
+select * from walkers;
+select * from walkers;
+select * from dogs
+;
+select * from dogs
+;
+select * from dogs
+;
+\q
+DROP DATABASE IF EXISTS leash_pals;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES owners(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+INSERT INTO dogs (name, breed, age, personality, owner_id) VALUES ('Kuma', 'Pomeranian', 3, 'Chill, but playful', 1);
+\q
+\c leash_pals 
+select * from dogs;
+\q
+DROP DATABASE IF EXISTS leash_pals;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+\q
+\c leash_pals 
+select * from dogs;
+select * from owners;
+select * from walkers;
+select * from appointments;
+select * from owners;
+select * from dogs;
+select * from owners;
+select * from walkers;
+select * from appointments;
+select * from walkers;
+select * from dogs;
+select * from owners;
+select * from owners;
+select * from dogs;
+select * from appointments;
+select * from walkers;
+select * from appointments;
+select * from walkers;
+select * from dogs;
+select * from owners;
+select * from appointments;
+select * from appointments;
+select * from appointments;
+\q
+\c leash_pals 
+select * from owners
+;
+select * from walkers;
+select * from appointments;
+select * from walkers;
+select * from dogs;
+select * from dogs;
+select * from appointments;
+select * from walkers;
+select * from owners
+;
+select * from dogs;
+\q
+\c leash_pals
+select * from dogs;
+\dt
+select * from owners
+;
+\q
+\c leash_pals 
+select * from appointments;
+select * from appointments;
+select * from walkers;
+select * from owners;
+select * from owners;
+select * from dogs;
+DROP DATABASE leash_pals 
+;
+\c filiptatarnik 
+DROP DATABASE leash_pals 
+;
+DROP DATABASE leash_pals 
+;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+\c leash_pals 
+select * from walkers
+;
+select * from owners
+;
+select * from dogs
+;
+select * from dogs
+;
+select * from owners
+;
+select * from dogs
+;
+select * from dogs
+;
+select * from dogs
+;
+select * from dogs
+;
+select * from dogs
+;
+select * from owners
+;
+select dogs from owners;
+select dog from owners;
+select * from dogs;
+\q
+\c leash_pals 
+select * from walkers;
+\q
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+\q
+\c leash_pals 
+select * from dogs;
+d = select * from dogs where dog_id = 9
+;
+select * from appointments;
+select * from appointments where dog_id is 9
+;
+select 9 from dogs
+;
+d
+d = select * from dogs
+d
+;
+d
+select 9 from dogs
+;
+;
+;
+select * from dogs
+;
+select * from dogs where id = 9
+;
+d = select * from dogs where id = 9
+;
+d
+var d
+;
+select * from dogs where id = 9;
+\dt
+INSERT INTO walkers (name, email, password_digest, age) VALUES ('Andy', 'andy@email.com', '123', 27)
+;
+select * from walkers;
+INSERT INTO walkers (name, email, password_digest, age) VALUES ('Spoon', 'forb@email.com', '123', 99)
+;
+select * from walkers;
+select * from owners;
+select * from dogs
+;
+select * from walkers;
+select * from owners;
+select * from owners;
+clear
+;
+select * from owners;
+select * from walkers;
+select * from dogs
+;
+select * from owners;
+select * from walkers;
+\c filiptatarnik 
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+\dt
+DROP DATABASE leash_pals 
+;
+\c filiptatarnik 
+DROP DATABASE leash_pals 
+;
+DROP DATABASE leash_pals 
+;
+CREATE DATABASE leash_pals;
+\c leash_pals;
+CREATE TABLE walkers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE owners(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+email VARCHAR(64),
+password_digest VARCHAR(60),
+age INTEGER
+);
+CREATE TABLE dogs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+breed VARCHAR(64),
+age INTEGER,
+personality VARCHAR(255),
+owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
+);
+CREATE TABLE appointments(
+id SERIAL PRIMARY KEY,
+dog_id INTEGER REFERENCES dogs(id) ON DELETE CASCADE,
+walker_id INTEGER REFERENCES walkers(id) ON DELETE CASCADE,
+date TIMESTAMP
+);
+\dt
+select * from owners;
+select * from walkers;
+select * from dogs;
+select * from dogs;
+select * from walkers;
+select * from owners;
+select * from owners;
+select * from walkers;
+select * from dogs;
+\q
+\dt
+\d
+\t
+\t
+\l
+create database news_app
+;
+\c news_app 
+\c filiptatarnik 
+DROP DATABASE IF EXISTS news_app;
+CREATE DATABASE news_app;
+\c news_app
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+username VARCHAR(64),
+password_digest VARCHAR(60)
+);
+CREATE TABLE articles(
+id SERIAL PRIMARY KEY,
+source VARCHAR(64),
+author VARCHAR(64),
+title VARCHAR(255),
+description VARCHAR(512),
+img_url VARCHAR(512),
+published_at TIMESTAMP,
+article_url VARCHAR(512)
+);
+CREATE TABLE comments(
+id SERIAL PRIMARY KEY,
+message TEXT,
+ts TIMESTAMP DEFAULT NOW(),
+upvotes INTEGER,
+downvotes INTEGER,
+article_id INTEGER REFERENCES articles(id),
+user_id INTEGER REFERENCES users(id)
+);
+CREATE TABLE user_articles(
+id SERIAL PRIMARY KEY,
+user_id INTEGER REFERENCES users(id),
+article_id INTEGER REFERENCES articles(id)
+);
+\dt
+select * from users'
+;
+'
+;
+select * from users;
+\q
+\c leash_pals 
+\dt
+select * from walkers
+;
+\q
+\c leash_pals 
+select * from owners;
+\q
+DROP DATABASE IF EXISTS ski_report_app;
+CREATE DATABASE ski_report_app;
+\c ski_report_app
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+username VARCHAR(64),
+password_digest VARCHAR(60)
+);
+CREATE TABLE resort_posts(
+id SERIAL PRIMARY KEY,
+resort VARCHAR(100),
+body VARCHAR(100),
+created_at TIMESTAMP DEFAULT NOW(),
+user_id INTEGER REFERENCES users(id)
+);
+\dt
+\c resort_posts
+select * from resort_posts
+;
+select * from users;
+\q
+DROP DATABASE IF EXISTS midwest_watts;
+CREATE DATABASE midwest_watts;
+\c midwest_watts;
+CREATE TABLE lights(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(255)
+);
+CREATE TABLE miscs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(64)
+);
+CREATE TABLE speakers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(64)
+);
+CREATE TABLE riggings(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(64)
+);
+CREATE TABLE quotes(
+id SERIAL PRIMARY KEY,
+description VARCHAR(64),
+date TIMESTAMP
+);
+INSERT INTO lights (name, price, description) VALUES ('Swarm 5 FX', 25.00 ,'3-in-1 LED light that includes an RGBAW rotating derby, red/green laser and white strobe effect');
+\dt
+\c lights
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('RGB Stage Wash (mover)', 20.00 ,'RGB Moving Head Wash Light, 0-20hz Strobe Rate, 60w Power Consumption, 18 Degree Beam Angle - 28 Field, Power Via IEC, Controllable Via DMX');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Mega-Strobe III ST-750', 10.00 ,'750w Dimmable Halogen Strobe, 1/4 Mono Controllable, Speed Controllable, 1-20 flashes/second');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ("6.25'(2m) Totem With Scrim & Par", 45.00 ,'SlimPar 56 (RGB) Included, White Scrim included, Ideal for Weddings');
+INSERT INTO lights (name, price, description) VALUES ('6.25ft(2m) Totem With Scrim & Par', 45.00 ,'SlimPar 56 (RGB) Included, White Scrim included, Ideal for Weddings');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Well Fit', 40.00 ,'800 lux @ 5m, 11 deg angle, 18 field, RGBA 10w LEDs, Wireless, 8 Hour Charge, IP 65 Rated(Rain, Snow etc proof');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('355z IRC (90w LED)', 65.00 ,'Digital Zoom 10 - 17 deg, 32,225 lux @ 2m, IEC In/Out DMX: 3-Pin, 309w, 3.2amp');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('RH1 (330w Osram Lamp)', 100.00 ,'Beam and Spot in One, DMX: 3 & 5 Pin, 111,000 lux @ 15m in Beam Mode, 2.5-8 deg. beam, 50 to 19 deg spot, *Minimum Rental Quantity: 4');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Rush MH3 by Martin (Philips 5R)', 90.00 ,'Beam, DMX: 3 & 5 Pin, 87,860 lux at 10m');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Intimidator 255 IRC', 40.00 ,'Totem Mode, Control With IRC Remote, No DMX needed - Static & Sound Active Mode, 60w LED, 98w (1.4A) 15 Deg. Angle 10,420 Lux @ 2m');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Pixellicious', 35.00 ,'29 Built in Patterns, Connects Mutliple Bars for Images/Videos, Power Linable Via Power Can, 160 5050 SMD LEDs 25mm Pixel Switch, 51w (.36A) 120 Deg Angle');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Color Rail IRC', 15.00 ,'Sound Active Programs, Power Link via IEC, 24 Patterns, IRC Compatible, 57w (.5A) 1043 Lux @ 2m 13/21 Deg Angle');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Freedom Par Hex 4 (10w 6-in-1 LED)', 25.00 ,'Red-Green-Blue-White-Amber+UV, Sound Active, Control Via Master/Slave Wirelessly, Controll Via iOS/Android, 14-18hr battery, 35w (.3A) 1372 Lux @ 2m 23/34 deg');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Freedom Par Quad IP (10w 4-in-1 LED)', 30.00 ,'Red-Green-Blue-Amber, Sound Active, Control via Master/Slave Wirelessly, Control via iOs/Android, 10hr battery, water resistant, 43w (.6A) 2464 lux @ 2m 10/29 deg. angle');
+select * from lights
+;
+\q
+\dt
+\l
+\c midwest_watts 
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('EZ Par 56', 20.00 ,'Red-Green-Blue, Sound Active Modes (Via DMX cable), 8-12 Hour battery, 12 Degree Beam Angle, 24w (.2A) 876 Lux @ 2m 10mm LED');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Slim Par 56', 15.00 ,'Red-Green-Blue LEDs, Sound Active Linking (via DMX), Power Linkable Via IEC cord, 12 Degree Beam Angle, 24w (.2A) 876 Lux @ 2m 10mm LED');
+select * from lights
+;
+INSERT INTO lights (name, price, description) VALUES ('Generic Par 64', 20.00 ,'Built in Sound Active Mode w/ Strobe, Built in Wireless Linking, Power Linkable via IEC, 7-14 Hour Battery, 24 Degree Beam Angle -Fan Cooled');
+select * from lights
+;
+\dt
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+byw
+bye
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+\q
+\c midwest_watts 
+\dt
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW of Mid/High Rand 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer 4000w Continous 8000w Peak[Active] All cables, covers, stands included');
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included');
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included');
+SHOW CREATE TABLE speakers
+;
+show create speakers ;
+select * from speakers
+;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'four');
+select * from speakers
+;
+DROP TABLE speakers ;
+\dt
+CREATE TABLE speakers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(64)
+); 
+\dt
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12/" Cone, 4x KW181 (135dB Peak) 40-112Hz 18/" Subwoofer All cables, covers, stands included
+'); 
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12inch Cone, 4x KW181 (135dB Peak) 40-112Hz 18inch Subwoofer All cables, covers, stands included
+'); 
+DROP TABLE speakers ;
+CREATE TABLE speakers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(200)
+); 
+\dt
+select * from speakers ;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12inch Cone, 4x KW181 (135dB Peak) 40-112Hz 18inch Subwoofer All cables, covers, stands included'); 
+select * from speakers ; 
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included'); 
+select * from speakers ;
+DROP TABLE speakers ;
+CREATE TABLE speakers(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(200)
+); 
+INSERT INTO speakers (name, price, description) VALUES ('KLKW44', 425 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12" Cone, 4x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included'); 
+select * from speakers ;
+\q
+\c midwest_watts 
+\dt
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW42', 340.00 ,'4x KLA12(131 dB Peak) 49Hz-18kHz[Active] 4kW Mid/High 12" Cone - 90deg x 36deg Per Stack & Tilt-Direct, 2x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included'); 
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KLKW42', 340.00 ,'2x K12 Powered Loudspeaker(131 dB)[Active] 2kW Mid/High 12" Cone - 75deg Conical Nominal Coverage & Tilt-Direct, 2x KW181 (135dB Peak) 40-112Hz 18" Subwoofer All cables, covers, stands included'); 
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KW181', 50.00 ,'1000w Continous|2000w Peak, Integrated Casters, XLR In/Out, Integrated Threading for Pole Mount, Wooden Build (Birch), All Cables, Covers and Stands Included'); 
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('KLA', 565.00 ,'1kW of Mid/High Range, 12"  Cone, 1.75" Compression Driver, 90deg x 18deg Coverage plus Tilt-Direct, Tote-PowerCon-PowerCon Jumper Included, XLR Jumper, SOLO Line Array System, XLR In/Out'); 
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('ELXP', 60.00 ,'1kW of Mid/High Range, 12" Cone, 1.5" Compression Driver, Wooden Build (Plywood), RCA, XLR, TRS In, XLR Out, Stands included upon request'); 
+select * from speakers;
+INSERT INTO speakers (name, price, description) VALUES ('SLX24B', 30.00 ,'Superardoid Pickup, Built in Battery Indicator, XLR-TRS Out, Rack mount available upon request(Free), Rental includes Rechargable Batteries(8 Hours on Two AAs'); 
+select * from speakers;
+select * from misc;
+\dt
+select * from miscs;
+INSERT INTO miscs (name, price, description) VALUES ('View Sonic Projector', 80.00 ,'3200 Lumens, HDMI S-Video RCA Ethernet In, S-Video Out, 3.5mm Audio Out'); 
+INSERT INTO miscs (name, price, description) VALUES ('iPad Air', 20.00 ,'Luminaire included for shows and Intelligent Lighting Designs'); 
+INSERT INTO miscs (name, price, description) VALUES ('Chrome Cast', 10.00 ,'Stream video and music content to a TV or Projector - Wirelessly stream from any device over WiFi, HDMI Out Digital Audio Out, Dig Audio to RCA Converter available'); 
+INSERT INTO miscs (name, price, description) VALUES ('9ft Projector Screen', 85.00 ,'Light weight & Portable, Great for weddings'); 
+INSERT INTO miscs (name, price, description) VALUES ('PVP 5mm Video Wall', 1400.00 ,'6 tiles of 5mm SMD Panels, 6 x 19.7" x 19.7" Panels, Flicker free, Indoor Rated IP20, Creates a 3.28ft x 4.93" Screen, Equivalent to a 71" TV'); 
+INSERT INTO miscs (name, price, description) VALUES ('Digital to Analog', 5.00 ,'Converts Digital audio signal or Coaxial/Toslink to Stereo'); 
+INSERT INTO miscs (name, price, description) VALUES ('MG10XU Mixer (10 Channel)', 20.00 ,'4 Microphone/Line Inputs, 3 Stereo Inputs, INSERT INTO miscs (name, price, description) VALUES ('MG10XU Mixer (10 Channel)', 20.00 ,'4 Microphone/Line Inputs, 3 Stereo Inputs, INSEion) VALUES ('Toshiba 32" LCD', 25.00 ,'720P LCD TV, 2 HDMI Output, Digital Audio Output'); 
+select * from misc;
+select * from miscs;
+DROP TABLE miscs;
+CREATE TABLE miscs(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(255)
+);
+INSERT INTO miscs (name, price, description) VALUES ('View Sonic Projector', 80.00 ,'3200 Lumens, HDMI S-Video RCA Ethernet In, S-Video Out, 3.5mm Audio Out'); 
+INSERT INTO miscs (name, price, description) VALUES ('iPad Air', 20.00 ,'Luminaire included for shows and Intelligent Lighting Designs'); 
+INSERT INTO miscs (name, price, description) VALUES ('Chrome Cast', 10.00 ,'Stream video and music content to a TV or Projector - Wirelessly stream from any device over WiFi, HDMI Out Digital Audio Out, Dig Audio to RCA Converter available'); 
+INSERT INTO miscs (name, price, description) VALUES ('9ft Projector Screen', 85.00 ,'Light weight & Portable, Great for weddings'); 
+INSERT INTO miscs (name, price, description) VALUES ('PVP 5mm Video Wall', 1400.00 ,'6 tiles of 5mm SMD Panels, 6 x 19.7" x 19.7" Panels, Flicker free, Indoor Rated IP20, Creates a 3.28ft x 4.93" Screen, Equivalent to a 71" TV'); 
+INSERT INTO miscs (name, price, description) VALUES ('Digital to Analog', 5.00 ,'Converts Digital audio signal or Coaxial/Toslink to Stereo'); 
+INSERT INTO miscs (name, price, description) VALUES ('MG10XU Mixer (10 Channel)', 20.00 ,'4 Microphone/Line Inputs, 3 Stereo Inputs, INSERT INTO miscs (name, price, description) VALUES ('MG10XU Mixer (10 Channel)', 20.00 ,'4 Microphone/Line Inputs, 3 Stereo Inputs, INSEion) VALUES ('Toshiba 32" LCD', 25.00 ,'720P LCD TV, 2 HDMI Output, Digital Audio Output'); 
+select * from miscs;
+INSERT INTO miscs (name, price, description) VALUES ('MG10XU Mixer (10 Channel)', 20.00 ,'4 Microphone/Line Inputs, 3 Stereo Inputs, 2 Aux Inputs, 1 Bus, +48V Phantom Power, Monitor Out, 2 Stereo Out, 24 PreProgrammed Effects'); 
+INSERT INTO miscs (name, price, description) VALUES ('Toshiba 32" LCD', 25.00 ,'720P LCD TV, 2 HDMI Output, Digital Audio Output'); 
+select * from miscs;
+INSERT INTO miscs (name, price, description) VALUES ('Hurricane 1301 Fog Machine', 21.00 ,'Controllable via DMX/Timer Remote, 20,000 cf/m Output, Four minute warm up, .9 Gallon Tank Capacity, 1,202w 10A'); 
+INSERT INTO miscs (name, price, description) VALUES ('One-Shot Confetti Blaster', 300.00 ,'Single shot Confetti blaster, cO2 or Compressed Air Compatible, Airhose and Spare O2 Ring included, cO2/Confetti not included'); 
+INSERT INTO miscs (name, price, description) VALUES ('20lb cO2 Tank', 25.00 ,'Greate for quick cO2 burtsts and Confetti Cannons'); 
+INSERT INTO miscs (name, price, description) VALUES ('Spare Fog Juice', 35.00 ,'One gallon for extented rentals of Hurricane 1301'); 
+INSERT INTO miscs (name, price, description) VALUES ('Furman Power Conditioner M-8DX', 15.00 ,'Protect your equipment and ensure a reliable a clean power source for your critical equipment, 9 Outlets, 2 Warted, 15A, 1750w Max'); 
+INSERT INTO miscs (name, price, description) VALUES ('EU 2000i Inverter Generator', 75.00 ,'1600w Continous Load(13.3A), Up to 8hrs run on Eco-Mode - 3.4 at maximum load, QUiter than a conversation (53dB) .95 Gallon Tank : 45.6lb Empty, Inverters Producs Clean Stable power'); 
+INSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO miscs (name, pricINSERT INTO misc 20.00 ,'Protect your gear from the elements, Quick set up, Easy Transport'); 
+;
+select * from miscs;
+;
+ 
+\q
+\c midwest_watts 
+\dt
+select * from miscs;
+INSERT INTO miscs (name, price, description) VALUES ('Heavy Duty Metal Fan', 10.00 ,'Use to keep help performers or your self cool, Use to help fog cover large area'); 
+INSERT INTO miscs (name, price, description) VALUES ('10ft x 10ft Canopy Tent', 20.00 ,'Protect your gear from the elements, Quick set up, Easy Transport'); 
+select * from miscs;
+select * from riggins;
+select * from riggings;
+CREATE TABLE riggings(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(255)
+);
+drop table riggings;
+CREATE TABLE riggings(
+id SERIAL PRIMARY KEY,
+name VARCHAR(64),
+price INTEGER,
+description VARCHAR(255)
+);
+INSERT INTO riggings (name, price, description) VALUES ('4ft x 8ft x 1ft/1.5ft/2ft Stage', 55.00 ,'Available in 1ft, 1.5ft or 2ft heights, Adjustable legs for uneven surfaces'); 
+INSERT INTO riggings (name, price, description) VALUES ('Light Bridge One 10ft x 12ft', 20.00 ,'14 pre-drilled holes for Bolt/Wing Nut mounting options, 400lb Capacity, Great for bands'); 
+INSERT INTO riggings (name, price, description) VALUES ('Sumner Eventer Lift', 150.00 ,'16ft Maximum Height, up to 500lb'); 
+INSERT INTO riggings (name, price, description) VALUES ('90 Degree Joint (f34)', 30.00 ,'1m height'); 
+INSERT INTO riggings (name, price, description) VALUES ('2m Totem W. 3ft x 3ft Bottom/ 1ft Top', 35.00 ,'includes: 1 36" x 36" Base Plate, 8 Couplers & 8 Conical Pins, One 6.25ft (2m) F34 Stick (12" x 12"), One 12" x 12" Top Plate'); 
+INSERT INTO riggings (name, price, description) VALUES ('6.25ft (2m) Stick', 25.00 ,'One F34 12" x 12" 2m Stick'); 
+INSERT INTO riggings (name, price, description) VALUES ('3ft x 3ft Base Plate', 10.00 ,'One Aluminum 36" x 36" Base Plate, Half Couplers & Conical Pins Included'); 
+INSERT INTO riggings (name, price, description) VALUES ('Clamps for Global Truss & Light Bridge', 1.00 ,'Free with rental of equiptment, C-Clamps, O-Clamps, *Light Bridge One compatible with ADJ C-Clamps ONLY'); 
+select * from riggings;
+\q
+\c midwest_watts 
+select * from speakers;
+select * from riggings;
+select * from lights;
+select * from miscs;
+q
+\q
+\c midwest_watts \q
+\c midwest_watts 
+\dt
+\q
+CREATE DB strain_search
+;
+CREATE DATABASE strain_search
+;
+\c strain_search 
+\q
+\c news_app 
+\q
+\dt
+\watts
+\c
+\d
+/q
+\q
+create database practiceone;
+\c practiceone;
+create table admin(id SERIAL PRIMARY KEY,name VARCHAR(64),email VARCHAR(64), password_digest VARCHAR(60), age INTEGER);
+\D
+\d
+\s admin
