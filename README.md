@@ -5,6 +5,8 @@ git clone https://github.com/FilTatarnik/DogWalk-final-project-backend.git
 cd into Directory
 Open IDE of choice
 copy and paste Migrations.sql file into terminal
+Hit enter to run Migrations.sql
+Databse and tables will be created
 If still in psql shell, hit \q to enter back into normal terminal
 bundle install
 bundle exec rackup
